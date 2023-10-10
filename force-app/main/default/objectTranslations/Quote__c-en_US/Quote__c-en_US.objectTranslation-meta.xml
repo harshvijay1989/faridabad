@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Quote</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Quotes</value>
+    </caseValues>
+    <layouts>
+        <layout>Quote Layout</layout>
+        <sections>
+            <label></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Prepared For</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Total</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Download_Quote</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Place_Order</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Send_Quote</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

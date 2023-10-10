@@ -1,0 +1,118 @@
+<template>
+    <lightning-card class="my-component">
+         <div class="slds-m-around_medium">
+        <lightning-button
+            label="Send Email"
+            title="Send Email"
+            variant="brand"
+            onclick={openEmailTemplateModal}
+        ></lightning-button>
+    </div>
+        <div class="slds-m-around_medium">
+           
+
+            	<lightning-input label="Search Object" type="search" onfocus={showPicklistOptions}
+							onchange={search} value={selectedValue} required="true">
+						</lightning-input>
+						<ul class="slds-listbox slds-listbox_vertical" role="presentation">
+							<template for:each={searchResults} for:item="searchResult">
+								<li key={searchResult.value} data-value={searchResult.value} role="presentation"
+									onclick={selectSearchResult} class="slds-listbox__item">
+									<div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small "
+										role="option">
+										<span class="slds-media__body">
+															<span class="slds-truncate" title={searchResult.label}>
+																{searchResult.label}
+															</span>
+										</span>
+									</div>
+								</li>
+							</template>
+						</ul>
+
+            
+        </div>
+        </lightning-card>
+        <template if:true={selectedObject}>
+           
+                <lightning-datatable
+                    key-field="Id"
+                    data={tableData}
+                    columns={columns}
+                    onrowselection={handleRowAction}
+                    selected-rows={selectedRows}
+                   onrowaction={callRowAction}
+                ></lightning-datatable>
+          
+        </template>
+    
+    <template if:true={isModalOpen}>
+        
+                
+                 <c-customlookup icon-name="standard:account"
+                         label="Select Email Templates"
+                         onlookupupdate={lookupRecord}
+                         placeholder="Search Account here..."></c-customlookup>
+            
+    </template>
+    <template if:false={isDocOpen}>
+       <iframe src={vfPgaeUrl} width="100%" height="400px" margin-top="2%" frameborder="0" scrolling="auto"></iframe>
+        <lightning-button label="Cancel" title="Non-primary action" onclick={handleCancel} class="slds-m-left_x-small"></lightning-button>
+                
+                <lightning-button  variant="Brand" label="Send Email" title="Primary action" onclick={handleEmail} class="slds-m-left_x-small button"></lightning-button>
+     </template>
+    
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <template>
+    <lightning-card title="Send Email">
+        <div class="slds-p-around_medium">
+            <lightning-input type="text" label="Enter Email Addresses" 
+                             value={emailAddresses} 
+                             onchange={handleEmailChange}></lightning-input>
+            <lightning-input type="text" label="Subject" 
+                             value={subject} 
+                             onchange={handleSubjectChange}></lightning-input>
+            <lightning-textarea label="Email Body" 
+                                value={body} 
+                                onchange={handleBodyChange}></lightning-textarea>
+            <lightning-button label="Send Email" 
+                             variant="brand" 
+                             onclick={sendEmail}></lightning-button>
+        </div>
+    </lightning-card>
+</template> -->
